@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Transcribe.Controls"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:converters="clr-namespace:Transcribe.Converters"
+             xmlns:viewModels="clr-namespace:Transcribe.Controls.ViewModels"
+             
+             x:Class="Transcribe.Controls.CardView"
+             x:Name="cardView">
+
+    <ContentView.Content>
+        <StackLayout 
+            HorizontalOptions="FillAndExpand" 
+            VerticalOptions="FillAndExpand" 
+            Spacing="0">
+
+            <StackLayout Margin="0,0,16,0">
+                
+                <!-- #region collection of cards -->
+                
+                <CollectionView x:Name="CardList" ItemsSource="{Binding DataSource,Source={x:Reference cardView}}">
+
+                    <CollectionView.Resources>
+                        <system:Boolean x:Key="FalseValue">False</system:Boolean>
+
+                        <converters:IsNullOrEmptyConverter x:Key="IsNullOrEmptyConverter"/>
+                    </CollectionView.Resources>
+                    
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout 
+                            HorizontalItemSpacing="4" 
+                            Orientation="Vertical"
+                            Span="1"
+                            VerticalItemSpacing="4"/>
+                        
+                    </CollectionView.ItemsLayout>
+                    
+                    <!-- #region items template -->
+                    <CollectionView.Style>
+                        <Style TargetType="{x:Type CollectionView}">
+                            <Setter Property="ItemTemplate">
+                                
+                                <Setter.Value>
+                                    <DataTemplate x:DataType="{x:Type viewModels:CardViewModel}">
+                                        <controls:Card BindingContext="{Binding .}" />
+                                    </DataTemplate>
+                                </Setter.Value>
+                                
+                            </Setter>
+
+
+                            <Style.Triggers>
+                                <DataTrigger
+                                    Binding="{Binding Template, Source={x:Reference cardView}, Converter={StaticResource IsNullOrEmptyConverter}}"
+                                    TargetType="{x:Type CollectionView}"
+                                    Value="{StaticResource FalseValue}">
+
+                                    <Setter Property="ItemTemplate" Value="{Binding Template, Source={x:Reference cardView}}" />
+                                </DataTrigger>
+                                    
+                            </Style.Triggers>
+                            
+                        </Style>
+
+                    </CollectionView.Style>
+                    <!-- #endregion -->
+
+                    <!-- #region empty view -->
+                    <CollectionView.EmptyView>
+                        <ContentView x:Name="emptyViewContent">
+                        </ContentView>
+                    </CollectionView.EmptyView>
+                    
+                    <!-- #endregion -->
+                    
+                </CollectionView>
+            </StackLayout>
+            
+            <!-- #endregion-->
+            
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
