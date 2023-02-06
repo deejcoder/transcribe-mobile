@@ -1,6 +1,7 @@
 ﻿using Plugin.AudioRecorder;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -17,8 +18,8 @@ namespace Transcribe.ViewModels
 
         #region Properties
 
-        private BindingList<CardViewModel> _cards;
-        public BindingList<CardViewModel> Cards
+        private ObservableCollection<CardViewModel> _cards;
+        public ObservableCollection<CardViewModel> Cards
         {
             get => _cards;
             set => SetProperty(nameof(Cards), value, ref _cards);
@@ -31,9 +32,11 @@ namespace Transcribe.ViewModels
             set => _recorder = value;
         }
 
+        private bool _recording = false;
         public bool Recording
         {
-            get => this.Recorder != null; // todo: replace with recorder.isrecording
+            get => _recording;
+            set => SetProperty(nameof(Recording), value, ref _recording);
         }
 
         #endregion
@@ -48,7 +51,7 @@ namespace Transcribe.ViewModels
 
         public void LoadCards()
         {
-            Cards = new BindingList<CardViewModel>();
+            Cards = new ObservableCollection<CardViewModel>();
             Cards.Add(new CardViewModel()
             {
                 Title = "Transcribe Result",
@@ -62,15 +65,16 @@ namespace Transcribe.ViewModels
         {
             if (this.Recorder == null)
             {
+                // start the recorder if it hasn't already been started
                 this.Recorder = new AudioRecorderService()
                 {
                     StopRecordingOnSilence = true,
                     StopRecordingAfterTimeout = true,
-                    TotalAudioTimeout = TimeSpan.FromSeconds(30)
+                    TotalAudioTimeout = TimeSpan.FromSeconds(5)
                 };
 
                 await Recorder.StartRecording();
-                OnPropertyChanged(nameof(Recording));
+                Recording = true;
             }
         }
 
@@ -95,14 +99,12 @@ namespace Transcribe.ViewModels
                         Date = DateTime.Now,
                         Content = response.Text
                     });
-
-                    OnPropertyChanged(nameof(Cards));
                 }
             }
             finally
             {
                 this.Recorder = null;
-                OnPropertyChanged(nameof(Recording));
+                Recording = false;
             }
         }
         

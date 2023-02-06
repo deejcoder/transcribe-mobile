@@ -41,7 +41,7 @@
 
                     <StackLayout HorizontalOptions="End" Padding="4">
 
-                        <Image Source="heart.svg">
+                        <Image Source="heart_plus.svg">
                             <Image.Behaviors>
                                 <toolkit:IconTintColorBehavior TintColor="IndianRed" />
                             </Image.Behaviors>

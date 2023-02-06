@@ -9,7 +9,7 @@ namespace Transcribe.ApiClient.Client
     public class SwaggerClient
     {
 
-        public const string BASE_URL = "http://10.0.2.2:8000";
+        public const string BASE_URL = "http://192.168.50.59:8000";
         public string BaseUrl = BASE_URL;
 
         public SwaggerClient() 

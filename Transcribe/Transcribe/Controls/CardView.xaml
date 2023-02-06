@@ -19,7 +19,7 @@
                 
                 <!-- #region collection of cards -->
                 
-                <CollectionView x:Name="CardList" ItemsSource="{Binding DataSource,Source={x:Reference cardView}}">
+                <CollectionView x:Name="CardList" ItemsSource="{Binding DataSource,Source={x:Reference cardView}}" ItemsUpdatingScrollMode="KeepLastItemInView">
 
                     <CollectionView.Resources>
                         <system:Boolean x:Key="FalseValue">False</system:Boolean>

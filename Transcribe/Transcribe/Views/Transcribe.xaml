@@ -12,31 +12,32 @@
 
     <StackLayout>
 
-        <StackLayout VerticalOptions="FillAndExpand" Margin="0,6,0,6">
-            <controls:CardView DataSource="{Binding Cards}"/>
-        </StackLayout>
+        <ScrollView VerticalOptions="FillAndExpand" Margin="0,6,0,6" Grid.Row="0">
+            <controls:CardView DataSource="{Binding Cards}" />
+        </ScrollView>
 
         <StackLayout 
-            VerticalOptions="End" 
-            BackgroundColor="{StaticResource Gray900}"
-            HeightRequest="100">
+                BackgroundColor="{StaticResource Gray900}"
+                Grid.Row="1"
+                HeightRequest="100">
 
             <skia:SKLottieView
-                Source="lottie_record_button.json"
-                RepeatCount="-1"
-                HeightRequest="100"
-                WidthRequest="150"
-                HorizontalOptions="Center" IsAnimationEnabled="{Binding Recording}">
+                    Source="lottie_record_button.json"
+                    RepeatCount="-1"
+                    HeightRequest="100"
+                    WidthRequest="150"
+                    HorizontalOptions="Center"
+                    x:Name="recordButton">
 
                 <skia:SKLottieView.GestureRecognizers>
                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped">
-                        
+
                     </TapGestureRecognizer>
                 </skia:SKLottieView.GestureRecognizers>
             </skia:SKLottieView>
 
         </StackLayout>
-        
+
     </StackLayout>
 
 </base:BasePage>

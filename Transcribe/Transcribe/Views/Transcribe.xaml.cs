@@ -1,3 +1,4 @@
+using Microsoft.Maui.Controls;
 using Transcribe.ViewModels;
 using Transcribe.Views.Base;
 
@@ -27,10 +28,14 @@ public partial class Transcribe : BasePage
             if(!ViewModel.Recording)
             {
                 ViewModel.StartRecording();
+                this.recordButton.IsAnimationEnabled = true;
+                this.recordButton.RepeatCount = 100;
             }
             else
             {
                 ViewModel.StopRecording();
+                this.recordButton.RepeatCount = 1; // can't set this to zero?
+                //this.recordButton.IsAnimationEnabled = false;
             }
         }
     }
