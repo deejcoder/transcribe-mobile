@@ -10,34 +10,38 @@
              x:DataType="{x:Type viewModels:TranscribeViewModel}"
              Title="Transcribe">
 
-    <StackLayout>
+    <base:BasePage.Content>
+        
+        <StackLayout>
 
-        <ScrollView VerticalOptions="FillAndExpand" Margin="0,6,0,6" Grid.Row="0">
-            <controls:CardView DataSource="{Binding Cards}" />
-        </ScrollView>
+            <ScrollView VerticalOptions="FillAndExpand" Margin="0,6,0,6" Grid.Row="0">
+                <controls:CardView DataSource="{Binding Cards}" />
+            </ScrollView>
 
-        <StackLayout 
-                BackgroundColor="{StaticResource Gray900}"
-                Grid.Row="1"
-                HeightRequest="100">
+            <StackLayout 
+                        BackgroundColor="{StaticResource Gray900}"
+                        Grid.Row="1"
+                        HeightRequest="100">
 
-            <skia:SKLottieView
-                    Source="lottie_record_button.json"
-                    RepeatCount="-1"
-                    HeightRequest="100"
-                    WidthRequest="150"
-                    HorizontalOptions="Center"
-                    x:Name="recordButton">
+                <skia:SKLottieView
+                            Source="lottie_record_button.json"
+                            RepeatCount="-1"
+                            HeightRequest="100"
+                            WidthRequest="150"
+                            HorizontalOptions="Center"
+                            x:Name="recordButton">
 
-                <skia:SKLottieView.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped">
+                    <skia:SKLottieView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped">
 
-                    </TapGestureRecognizer>
-                </skia:SKLottieView.GestureRecognizers>
-            </skia:SKLottieView>
+                        </TapGestureRecognizer>
+                    </skia:SKLottieView.GestureRecognizers>
+                </skia:SKLottieView>
+
+            </StackLayout>
 
         </StackLayout>
 
-    </StackLayout>
+    </base:BasePage.Content>
 
 </base:BasePage>

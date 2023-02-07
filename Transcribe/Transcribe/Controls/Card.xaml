@@ -18,7 +18,7 @@
             BorderColor="{StaticResource  Gray600}">
 
             <StackLayout Margin="0,0,0,6">
-                <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal" Padding="0" Spacing="0" Margin="0">
 
                     <StackLayout 
                         Orientation="Vertical" 

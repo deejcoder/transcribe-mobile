@@ -5,6 +5,9 @@ public partial class BasePage : ContentPage
 
     #region Properties
 
+    #region Bindable Properties
+    #endregion
+
     #endregion
 
 
@@ -12,4 +15,9 @@ public partial class BasePage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+    {
+
+    }
 }
