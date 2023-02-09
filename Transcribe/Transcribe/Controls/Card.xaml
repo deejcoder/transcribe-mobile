@@ -14,8 +14,8 @@
             VerticalOptions="FillAndExpand"
             HorizontalOptions="FillAndExpand"
             CornerRadius="6"
-            BackgroundColor="Transparent"
-            BorderColor="{StaticResource  Gray600}">
+            BackgroundColor="{StaticResource White}"
+            BorderColor="{StaticResource  Gray100}">
 
             <StackLayout Margin="0,0,0,6">
                 <StackLayout Orientation="Horizontal" Padding="0" Spacing="0" Margin="0">
@@ -29,30 +29,45 @@
                         <Label 
                             Text="{Binding Title}" 
                             HorizontalOptions="StartAndExpand"
-                            FontSize="16"/>
+                            FontSize="16"
+                            TextColor="{StaticResource CardPrimaryColor}"/>
 
                         <Label 
                             Text="{Binding Date, StringFormat='{0:MMMM dd, hh\\:mm tt}'}" 
                             HorizontalOptions="StartAndExpand"
                             FontSize="12"
-                            TextColor="{StaticResource Gray400}"/>
+                            TextColor="{StaticResource Gray600}"/>
 
                     </StackLayout>
 
                     <StackLayout HorizontalOptions="End" Padding="4">
 
-                        <Image Source="heart_plus.svg">
-                            <Image.Behaviors>
-                                <toolkit:IconTintColorBehavior TintColor="IndianRed" />
-                            </Image.Behaviors>
-                        </Image>
+                        <StackLayout Orientation="Horizontal">
 
+                            <StackLayout Padding="4,0,0,0">
+                                <Image Source="heart_plus.svg">
+                                    <Image.Behaviors>
+                                        <toolkit:IconTintColorBehavior TintColor="{StaticResource CardPrimaryColor}" />
+                                    </Image.Behaviors>
+                                </Image>
+                            </StackLayout>
+
+                            <StackLayout Padding="14,0,4,0">
+                                <Image Source="card_options.svg">
+                                    <Image.Behaviors>
+                                        <toolkit:IconTintColorBehavior TintColor="{StaticResource CardPrimaryColor}" />
+                                    </Image.Behaviors>
+                                </Image>
+                            </StackLayout>
+
+                        </StackLayout>
+                        
                     </StackLayout>
 
                 </StackLayout>
 
                 <StackLayout VerticalOptions="FillAndExpand">
-                    <Label Text="{Binding Content}" TextColor="{StaticResource Gray200}" />
+                    <Label Text="{Binding Content}" TextColor="{StaticResource Gray600}" />
                 </StackLayout>
 
             </StackLayout>

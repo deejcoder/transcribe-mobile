@@ -10,26 +10,26 @@
              x:DataType="{x:Type viewModels:TranscribeViewModel}"
              Title="Transcribe">
 
-    <base:BasePage.Content>
-        
-        <StackLayout>
+    <base:BasePage.ViewContent>
+
+        <StackLayout VerticalOptions="FillAndExpand">
 
             <ScrollView VerticalOptions="FillAndExpand" Margin="0,6,0,6" Grid.Row="0">
                 <controls:CardView DataSource="{Binding Cards}" />
             </ScrollView>
-
+            
             <StackLayout 
-                        BackgroundColor="{StaticResource Gray900}"
-                        Grid.Row="1"
-                        HeightRequest="100">
+                BackgroundColor="{StaticResource SecondaryBackground}"
+                Grid.Row="1"
+                HeightRequest="90">
 
                 <skia:SKLottieView
-                            Source="lottie_record_button.json"
-                            RepeatCount="-1"
-                            HeightRequest="100"
-                            WidthRequest="150"
-                            HorizontalOptions="Center"
-                            x:Name="recordButton">
+                    Source="lottie_record_button.json"
+                    RepeatCount="-1"
+                    HeightRequest="90"
+                    WidthRequest="150"
+                    HorizontalOptions="Center"
+                    x:Name="recordButton">
 
                     <skia:SKLottieView.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped">
@@ -42,6 +42,6 @@
 
         </StackLayout>
 
-    </base:BasePage.Content>
+    </base:BasePage.ViewContent>
 
 </base:BasePage>

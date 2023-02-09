@@ -11,6 +11,12 @@ public partial class Transcribe : BasePage
 
     protected TranscribeViewModel ViewModel { get; set; }
 
+    #region Bindable Properties
+    #endregion
+
+    #endregion
+
+    #region Bindable Property Initalizers
     #endregion
 
     public Transcribe()

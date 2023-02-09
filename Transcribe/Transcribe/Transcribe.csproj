@@ -57,16 +57,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Views\Base\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <ProjectReference Include="..\Transcribe.ApiClient\Transcribe.ApiClient.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Compile Update="Controls\CardView.xaml.cs">
 	    <DependentUpon>CardView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Base\BaseView.xaml.cs">
+	    <DependentUpon>BaseView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Base\BasePage.xaml.cs">
+	    <DependentUpon>BasePage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\Favourites.xaml.cs">
 	    <DependentUpon>Favourites.xaml</DependentUpon>
@@ -79,6 +81,9 @@
 	  </MauiXaml>
 	  <MauiXaml Update="Controls\CardView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Base\BasePage.xaml">
+	    <Generator></Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Favourites.xaml">
 	    <Generator>MSBuild:Compile</Generator>

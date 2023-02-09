@@ -1,40 +1,46 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             x:Class="Transcribe.Views.Base.BasePage"
-             x:Name="basePage"
-             Shell.NavBarIsVisible="False">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Transcribe.Views.Base.BasePage"
+    x:Name="basePage">
 
     <ContentPage.Content>
         
-        <StackLayout Orientation="Vertical">
+        <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
 
-            <Label Text="Testing" FontSize="20" BackgroundColor="White" />
-            <StackLayout BackgroundColor="{StaticResource Gray600}" HorizontalOptions="FillAndExpand" Orientation="Horizontal" VerticalOptions="Start">
+            <StackLayout 
+                BackgroundColor="{StaticResource White}" 
+                HorizontalOptions="FillAndExpand" 
+                Orientation="Horizontal" 
+                VerticalOptions="Start"
+                Padding="0,12,0,12">
 
-                <StackLayout HorizontalOptions="Start">
-                    <Image Source="chevron_left.svg" HeightRequest="50" WidthRequest="50">
-                    
+                <StackLayout HorizontalOptions="Start" VerticalOptions="Center" Margin="0,0,12,0">
+                    <Image Source="chevron_left.svg" HeightRequest="32" WidthRequest="32">
+
                         <Image.Behaviors>
-                            <toolkit:IconTintColorBehavior TintColor="White" />
+                            <toolkit:IconTintColorBehavior TintColor="{StaticResource Gray600}" />
                         </Image.Behaviors>
-                    
+
                         <Image.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                            <TapGestureRecognizer Tapped="BackButton_Tapped"/>
                         </Image.GestureRecognizers>
-                    
+
                     </Image>
                 </StackLayout>
 
-                <StackLayout HorizontalOptions="FillAndExpand">
-                    <Label Text="{Binding Title, Source={x:Reference basePage}}" TextColor="White" />
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                    <Label Text="{Binding Title, Source={x:Reference basePage}}" FontSize="16" TextColor="{StaticResource Gray600}" />
                 </StackLayout>
-            
-            
+
+
             </StackLayout>
-        
-            <ContentPresenter VerticalOptions="FillAndExpand" />
+
+            <ContentView x:Name="viewContent" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            </ContentView>
+
         </StackLayout>
 
     </ContentPage.Content>
