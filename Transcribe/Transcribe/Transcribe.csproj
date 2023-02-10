@@ -82,8 +82,14 @@
 	  <MauiXaml Update="Controls\CardView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Base\BaseDialog.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Base\BasePage.xaml">
 	    <Generator></Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Dialogs\ErrorDialog.xaml">
+	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Favourites.xaml">
 	    <Generator>MSBuild:Compile</Generator>

@@ -10,6 +10,7 @@ using System.Windows.Input;
 using Transcribe.ApiClient.Client;
 using Transcribe.Controls.ViewModels;
 using Transcribe.ViewModels.Base;
+using Transcribe.Views.Dialogs;
 
 namespace Transcribe.ViewModels
 {
@@ -100,6 +101,12 @@ namespace Transcribe.ViewModels
                         Content = response.Text
                     });
                 }
+            }
+            catch (Exception ex)
+            {
+                ContentPage page = new ContentPage();
+                page.Content = new ErrorDialog() { Title = "System Error", ErrorDescription = ex.Message, ErrorContent = ex.StackTrace };
+                await Navigation.PushModalAsync((Page)page, false);
             }
             finally
             {
