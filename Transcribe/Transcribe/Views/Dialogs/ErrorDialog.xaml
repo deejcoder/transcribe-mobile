@@ -9,16 +9,18 @@
         
         <StackLayout>
 
-            <Label Text="{Binding ErrorDescription, Source={x:Reference errorDialog}}" FontSize="Default" />
+            <Label Text="{Binding ShortDescription, Source={x:Reference errorDialog}}" FontSize="14" />
 
             <!-- Show the error in a scrollable view -->
             <ScrollView Padding="6" Margin="6" VerticalOptions="FillAndExpand" VerticalScrollBarVisibility="Default">
 
                 <StackLayout>
-                    <Label Text="{Binding ErrorContent, Source={x:Reference errorDialog}}" FontSize="Body" />
+                    <Label Text="{Binding LongDescription, Source={x:Reference errorDialog}}" FontSize="14" />
                 </StackLayout>
 
             </ScrollView>
+
+            <Button x:Name="btnClose" Text="Close" BackgroundColor="{StaticResource CardPrimaryColor}" Clicked="btnClose_Clicked"/>
 
         </StackLayout>
 

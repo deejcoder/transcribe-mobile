@@ -64,6 +64,9 @@
 	  <Compile Update="Controls\CardView.xaml.cs">
 	    <DependentUpon>CardView.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Controls\NavigationBarItemView.xaml.cs">
+	    <DependentUpon>NavigationBarItemView.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\Base\BaseView.xaml.cs">
 	    <DependentUpon>BaseView.xaml</DependentUpon>
 	  </Compile>
@@ -80,6 +83,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Controls\CardView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Controls\NavigationBarItemView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Base\BaseDialog.xaml">

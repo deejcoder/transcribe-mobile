@@ -1,46 +1,51 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Transcribe.Views.Base.BaseDialog"
-             x:Name="baseDialog">
+             x:Name="baseDialog"
+             BackgroundColor="#AF171717">
 
 
-    <ContentView.Content>
+    <ContentPage.Content>
 
-        <Frame
-            HasShadow="False"
-            BorderColor="Transparent"
-            Opacity="0.3"
-            CornerRadius="0"
-            Padding="0"
-            Margin="0"
-            BackgroundColor="{StaticResource Gray900}"
-            HorizontalOptions="FillAndExpand"
-            VerticalOptions="FillAndExpand"
-            MaximumHeightRequest="{Binding MaximumHeight, Source={x:Reference baseDialog}}">
+        <FlexLayout 
+            Direction="Column"
+            AlignItems="Center"
+            JustifyContent="SpaceEvenly">
 
-            <StackLayout 
-                HorizontalOptions="FillAndExpand" 
-                BackgroundColor="White"
-                Margin="32,0,32,0"
-                Padding="16, 8, 16, 8"
-                Orientation="Vertical"
-                VerticalOptions="Center">
+            <Frame
+                HasShadow="False"
+                BorderColor="{StaticResource Gray200}"
+                CornerRadius="10"
+                Padding="3"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                Margin="16,0,16,0"
+                x:Name="dialogFrame">
 
-                <Label 
-                    Text="{Binding Title, Source={x:Reference baseDialog}}" 
-                    FontSize="18" 
-                    TextColor="{StaticResource CardPrimaryColor}"
-                    FontAttributes="Bold" />
+                <StackLayout 
+                    HorizontalOptions="FillAndExpand" 
+                    BackgroundColor="White"
+                    Padding="16, 8, 16, 8"
+                    Orientation="Vertical"
+                    VerticalOptions="Center">
 
-                <ContentView x:Name="viewContent" VerticalOptions="FillAndExpand">
+                    <Label 
+                        Text="{Binding Title, Source={x:Reference baseDialog}}" 
+                        FontSize="18" 
+                        TextColor="{StaticResource CardPrimaryColor}"
+                        FontAttributes="Bold"/>
 
-                </ContentView>
+                    <ContentView x:Name="viewContent" Margin="0,16,0,0"  VerticalOptions="FillAndExpand">
 
-            </StackLayout>
+                    </ContentView>
 
-        </Frame>
+                </StackLayout>
 
-    </ContentView.Content>
-    
-</ContentView>
+            </Frame>
+
+        </FlexLayout>
+
+    </ContentPage.Content>
+
+</ContentPage>

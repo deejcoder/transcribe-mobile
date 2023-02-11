@@ -104,8 +104,7 @@ namespace Transcribe.ViewModels
             }
             catch (Exception ex)
             {
-                ContentPage page = new ContentPage();
-                page.Content = new ErrorDialog() { Title = "System Error", ErrorDescription = ex.Message, ErrorContent = ex.StackTrace };
+                ErrorDialog page = new ErrorDialog() { Title = "Application Error", ReportedException = ex };
                 await Navigation.PushModalAsync((Page)page, false);
             }
             finally
