@@ -89,10 +89,10 @@ public class NavigationBar : FlexLayout
         {
             NavigationBarItemView itemView = new()
             {
-                BindingContext = menuItem
+                BindingContext = menuItem,
+                //itemView.SetBinding(NavigationBarItemView.MenuItemTappedCommandProperty, nameof(MenuItemTappedCommand));
+                MenuItemTappedCommand = MenuItemTappedCommand
             };
-
-            itemView.SetBinding(NavigationBarItemView.MenuItemTappedCommandProperty, nameof(MenuItemTappedCommand));
             view.Children.Add(itemView);
         }
     }
@@ -103,7 +103,10 @@ public class NavigationBar : FlexLayout
     {
         // update the selected menu item and do something (todo)
         if(args.Item != null)
+        {
             SelectedMenuId = args.Item.Id;
+        }
+                  
     }
 
     #endregion

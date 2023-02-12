@@ -49,9 +49,9 @@ public partial class BasePage : ContentPage
 
         // TODO: move this somewhere better, and make nav bar togglable
         ObservableCollection<NavBarItem> navBarItems= new ObservableCollection<NavBarItem>();
-        navBarItems.Add(new NavBarItem() { Id = NavBarItemIndex.Me, Icon = "grid_outline.svg", Label = "Me" });
+        navBarItems.Add(new NavBarItem() { Id = NavBarItemIndex.MySpace, Icon = "grid_outline.svg", Label = "My Space" });
         navBarItems.Add(new NavBarItem() { Id = NavBarItemIndex.Explore, Icon = "compass_outline.svg", Label = "Explore" });
-        navBarItems.Add(new NavBarItem() { Id = NavBarItemIndex.Favourites, Icon = "heart_outline.svg", Label = "Favourites" });
+        navBarItems.Add(new NavBarItem() { Id = NavBarItemIndex.Saved, Icon = "heart_outline.svg", Label = "Saved" });
         navBarItems.Add(new NavBarItem() { Id = NavBarItemIndex.Profile, Icon = "profile_outline.svg", Label = "Profile" });
 
         this.NavBarItems = navBarItems;

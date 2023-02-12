@@ -6,28 +6,39 @@
              x:Class="Transcribe.Controls.NavigationBarItemView"
              x:Name="navBarItem"
              x:DataType="{x:Type viewModels:NavBarItem}">
-    
+
     <StackLayout VerticalOptions="Center" Margin="0,0,0,0" Padding="12">
-        
-        <!-- #region Icon - changes color if selected -->
-        <Image Source="{Binding Icon}" HeightRequest="28" WidthRequest="28" Margin="0,0,0,4">
 
-            <Image.Triggers>
-                <DataTrigger TargetType="Image" Binding="{Binding IsSelected}" Value="True">
-                    <Setter Property="Behaviors">
-                        <toolkit:IconTintColorBehavior TintColor="{StaticResource CardPrimaryColor}"/>
+        <!-- #region Icon - change tint when selected -->
+        <ContentView>
+            <!-- this needs to change to code-behind -->
+            <ContentView.Triggers>
+                <DataTrigger TargetType="ContentView" Binding="{Binding IsSelected}" Value="True">
+
+                    <Setter Property="Content">
+                        <Image Source="{Binding Icon}" HeightRequest="28" WidthRequest="28" Margin="0,0,0,4">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="{StaticResource CardPrimaryColor}"/>
+                            </Image.Behaviors>
+                        </Image>
                     </Setter>
+
                 </DataTrigger>
 
-                <DataTrigger TargetType="Image" Binding="{Binding IsSelected}" Value="True">
-                    <Setter Property="Behaviors">
-                        <toolkit:IconTintColorBehavior TintColor="{StaticResource Gray300}"/>
-                    </Setter>
-                </DataTrigger>
-            </Image.Triggers>
+                <DataTrigger TargetType="ContentView" Binding="{Binding IsSelected}" Value="False">
 
-        </Image>
-        
+                    <Setter Property="Content">
+                        <Image Source="{Binding Icon}" HeightRequest="28" WidthRequest="28" Margin="0,0,0,4">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="{StaticResource Gray400}"/>
+                            </Image.Behaviors>
+                        </Image>
+                    </Setter>
+
+                </DataTrigger>
+            </ContentView.Triggers>
+        </ContentView>
+
         <!-- #endregion -->
 
         <!-- #region Label (below icon) -->
@@ -42,12 +53,12 @@
                 </DataTrigger>
             </Label.Triggers>
         </Label>
-        
+
         <!-- #endregion -->
 
         <StackLayout.GestureRecognizers>
             <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
         </StackLayout.GestureRecognizers>
     </StackLayout>
-    
+
 </ContentView>
