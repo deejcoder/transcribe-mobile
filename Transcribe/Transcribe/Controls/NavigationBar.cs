@@ -11,6 +11,7 @@ public class NavigationBar : FlexLayout
 
     #region Properties
 
+    //TODO: move this outside the navigation bar so it can be handled
     public ICommand MenuItemTappedCommand => new Command<MenuItemTappedEventArgs>(HandleMenuItemTapped);
 
     #region Bindable Properties

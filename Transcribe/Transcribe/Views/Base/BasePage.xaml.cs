@@ -20,10 +20,22 @@ public partial class BasePage : ContentPage
 
     #region Bindable Properties
 
+    public bool TitleBarVisible
+    {
+        get => (bool)base.GetValue(TitleBarVisibleProperty);
+        set => base.SetValue(TitleBarVisibleProperty, value);
+    }
+
     public Layout ViewContent
     {
         get => (Layout)base.GetValue(ViewContentProperty);
         set => base.SetValue(ViewContentProperty, value);
+    }
+
+    public bool NavigationBarVisible
+    {
+        get => (bool)base.GetValue(NavigationBarVisibleProperty);
+        set => base.SetValue(NavigationBarVisibleProperty, value);
     }
 
     #endregion
@@ -32,6 +44,14 @@ public partial class BasePage : ContentPage
 
     #region Bindable Property Initalizers
 
+    public static BindableProperty TitleBarVisibleProperty = BindableProperty.Create(
+        nameof(ViewContent),
+        typeof(bool),
+        typeof(BasePage),
+        false,
+        BindingMode.OneWay,
+        propertyChanged: HandleTitleBarVisiblePropertyChanged);
+
     public static BindableProperty ViewContentProperty = BindableProperty.Create(
         nameof(ViewContent),
         typeof(Layout),
@@ -39,6 +59,14 @@ public partial class BasePage : ContentPage
         null,
         BindingMode.OneWay,
         propertyChanged: HandleViewContentPropertyChanged);
+
+    public static BindableProperty NavigationBarVisibleProperty = BindableProperty.Create(
+        nameof(ViewContent),
+        typeof(bool),
+        typeof(BasePage),
+        false,
+        BindingMode.OneWay,
+        propertyChanged: HandleNavigationBarVisiblePropertyChanged);
 
     #endregion
 
@@ -59,11 +87,24 @@ public partial class BasePage : ContentPage
 
     #region Bindable Property Changed Methods
 
+    private static void HandleTitleBarVisiblePropertyChanged(BindableObject bindable, object oldValue, object newValue)
+    {
+        BasePage view = (BasePage)bindable;
+        view.titleBar.IsVisible = (bool)newValue;
+    }
+
     private static void HandleViewContentPropertyChanged(BindableObject bindable, object oldValue, object newValue)
     {
         BasePage view = (BasePage)bindable;
         view.viewContent.Content = (Layout)newValue;
     }
+
+    private static void HandleNavigationBarVisiblePropertyChanged(BindableObject bindable, object oldValue, object newValue)
+    {
+        BasePage view = (BasePage)bindable;
+        view.navBar.IsVisible = (bool)newValue;
+    }
+
 
     #endregion
 

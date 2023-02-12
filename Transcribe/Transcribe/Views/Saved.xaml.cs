@@ -2,9 +2,9 @@ using Transcribe.Views.Base;
 
 namespace Transcribe.Views;
 
-public partial class Favourites : BaseView
+public partial class Saved : BaseView
 {
-	public Favourites()
+	public Saved()
 	{
 		InitializeComponent();
 	}
