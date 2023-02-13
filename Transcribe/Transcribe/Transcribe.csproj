@@ -73,8 +73,14 @@
 	  <Compile Update="Views\Base\BasePage.xaml.cs">
 	    <DependentUpon>BasePage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\Favourites.xaml.cs">
-	    <DependentUpon>Favourites.xaml</DependentUpon>
+	  <Compile Update="Views\Explore.xaml.cs">
+	    <DependentUpon>Explore.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Profile.xaml.cs">
+	    <DependentUpon>Profile.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Saved.xaml.cs">
+	    <DependentUpon>Saved.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
@@ -97,7 +103,16 @@
 	  <MauiXaml Update="Views\Dialogs\ErrorDialog.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Favourites.xaml">
+	  <MauiXaml Update="Views\Explore.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Profile.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Saved.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\MySpace.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
